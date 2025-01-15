@@ -29,7 +29,7 @@ You can deploy NGINX Instance Manager in the following environments:
 
 ## Sizing recommendations for Managing NGINX Instances {#system-sizing}
 
-The following recommendations provide the minimum guidelines for NGINX Instance Manager. These guidelines ensure adequate performance, but for optimal results, we strongly recommend using solid-state drives (SSDs) for storage. See further down for requirements when NGINX App Protect us being used, as this requires additional memory and cpu. 
+The following recommendations provide the minimum guidelines for NGINX Instance Manager. These guidelines ensure adequate performance, but for optimal results, we strongly recommend using solid-state drives (SSDs) for storage. See further down for requirements when NGINX App Protect is being used, as this requires additional memory and cpu. 
 
 ### Standard NGINX configuration deployments
 
