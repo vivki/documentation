@@ -65,11 +65,6 @@
       "name": "Settings",
       "description": "Configuration option for different aspect of NGINX One service.\nYou can set NGINX Instance cleanup preferences.\n",
       "x-displayName": "Settings"
-    },
-    {
-      "name": "Inventory",
-      "description": "Get tenant usage information for NGINX Plus data plane instances. These metrics are collected by the NGINX data plane instances and reported to NGINX One Console.\n",
-      "x-displayName": "Inventory"
     }
   ],
   "paths": {
@@ -4002,84 +3997,6 @@
           },
           "500": {
             "$ref": "#/components/responses/InternalServerErr"
-          }
-        }
-      }
-    },
-    "/inventory": {
-      "post": {
-        "x-feature-flag": "inventory",
-        "tags": [
-          "Inventory"
-        ],
-        "summary": "NGINX Plus: Retrieve tenant usage information",
-        "operationId": "getInventory",
-        "description": "Based on query parameters.\n\nYou can filter and aggregate metrics by name and `start_time` through `end_time`.\n",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/InventoryMetricQueryRequest"
-              },
-              "example": {
-                "start_time": "now-1d",
-                "end_time": "now",
-                "metrics": [
-                  {
-                    "name": "nginx.plus.instances",
-                    "aggregate": [
-                      "count",
-                      "sum",
-                      "avg",
-                      "min",
-                      "max"
-                    ]
-                  },
-                  {
-                    "name": "k8s.cluster.nodes",
-                    "aggregate": [
-                      "count",
-                      "sum",
-                      "avg",
-                      "min",
-                      "max"
-                    ]
-                  }
-                ]
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Successfully retrieved tenant usage information.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/InventoryResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Request cannot be processed due to invalid input or parameters. Verify the request format and provided data.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "An unexpected error occurred on the server. Please try the request again later.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
           }
         }
       }
@@ -8718,12 +8635,6 @@
       "name": "Manage NGINX One Settings",
       "tags": [
         "Settings"
-      ]
-    },
-    {
-      "name": "NGINX Plus Usage Inventory",
-      "tags": [
-        "Inventory"
       ]
     }
   ]
